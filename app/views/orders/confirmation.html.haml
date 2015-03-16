@@ -1,0 +1,9 @@
+- @page_title = 'Checkout'
+= render 'checkout_sidebar'
+.checkout
+  %h2 Allt ser bra ut!
+  %p.intro
+    Kontrollera din beställning en sista gång. Om allting stämmer slickar du på "Slutför".
+  = render 'shared/order_items', :order => current_order, :readonly => true
+  = form_tag checkout_confirmation_path, :method => :patch, :class => 'disableable' do
+    %p.submit= submit_tag "Slutför", class: 'order'

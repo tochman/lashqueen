@@ -1,0 +1,10 @@
+.basket
+  - if has_order? && current_order.has_items?
+    %p.quantity Det finns <b>#{pluralize current_order.total_items, 'artikel'}</b> i din korg
+    %p.amount <b>#{number_to_currency current_order.total_before_tax}</b> (ex. #{Shoppe.settings.tax_name.downcase} &amp; frakt)
+    %p.buttons
+      = link_to "Granska", basket_path
+      = link_to "Till kassan", checkout_path, :class => 'checkout'
+
+  - else
+    %p.empty <b>Din korg är tom.</b> 

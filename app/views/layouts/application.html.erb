@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= [@page_title, Shoppe.settings.store_name].join('-') %></title>
+  <%= stylesheet_link_tag :application, media: 'all' %>
+  <%= javascript_include_tag :application %>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' %>
+  <%= yield :head %>
+</head>
+<body>
+<%= display_flash %>
+
+<header class="full main">
+  <div class="inner">
+    <!-- Primary navigation-->
+    <nav class="main">
+      <ul>
+        <li>
+          <%= link_to_unless_current 'Hem', root_path, nav_item: :home %>
+        </li>
+        <li>
+          <%= link_to_unless_current 'Produkter', catalogue_path, nav_item: :catalogue, class: 'noborder' %>
+          <ul>
+            <% for category in Shoppe::ProductCategory.ordered %>
+                <li>
+                  <%= link_to_unless_current category.name, products_path(category.permalink) %>
+                </li>
+            <% end %>
+          </ul>
+        </li>
+        <li>
+          <%= link_to_unless_current 'Om oss', page_path(:why), nav_item: :why %>
+        </li>
+        <li>
+          <%= link_to_unless_current 'Frågot & Svar', page_path(:faqs), nav_item: :faqs %>
+        </li>
+        <li>
+          <%= link_to_unless_current 'Kontakta oss', page_path(:contact), nav_item: :contact %>
+        </li>
+      </ul>
+      <%= link_to image_tag('cropped-plaza1.jpg', width: '250', alt: Shoppe.settings.store_name, class: 'pull-right'), root_path %>
+
+    </nav>
+    <div class="pull_left">
+      <h2><em>LashQueen</em>.</h2>
+      <p class="intro">Produkter för proffs - hos oss hittar du professionella produkter för fransförlängning av
+        högsta kvalité från ledande tillverkare. </p>
+    </div>
+  </div>
+</header>
+
+
+<!-- Main content section -->
+<section class="content">
+  <div class="inner">
+    <!-- Sidebar -->
+    <section class="sidebar">
+      <% if content_for?(:sidebar) %>
+          <%= yield :sidebar %>
+      <% else %>
+          <%= render 'shared/basket' %>
+          <%= render 'shared/reasons' %>
+      <% end %>
+    </section>
+    <!-- Primary section  -->
+    <section class="primary">
+      <%= yield %>
+    </section>
+  </div>
+</section>
+<!-- Footer -->
+<footer class="main">
+  <div class="inner">
+    <!-- Useful footer links (policies etc...) -->
+    <ul class="links">
+      <li>
+        <%= link_to_unless_current 'Villkor', page_path(:terms) %>
+      </li>
+      <li>
+        <%= link_to_unless_current 'Din integritet', page_path(:privacy) %>
+      </li>
+      <li>
+        <%= link_to_unless_current 'Returer och byten', page_path(:returns) %>
+      </li>
+      <li>
+        <%= link_to_unless_current 'Frågor & Svar', page_path(:faqs) %>
+      </li>
+    </ul>
+    <div class="callUs">
+      <p>Undrar du något? Ring oss!:</p>
+
+      <p class="number">tlf 031 100 20 30</p>
+
+      <p>Vi har öppet alla vardagar.</p>
+      <!-- Links to social media  -->
+      <ul class="social">
+        <li class="twitter">
+          <%= link_to 'Twitter', 'http://twitter.com/niftyware' %>
+        </li>
+        <li class="facebook">
+          <%= link_to 'Facebook', 'http://facebook.com/' %>
+        </li>
+        <li class="pinterest">
+          <%= link_to 'Pinterest', 'http://pinterest.com' %>
+        </li>
+        <li class="youtube">
+          <%= link_to 'Youtube', 'http://youtube.com' %>
+        </li>
+      </ul>
+    </div>
+    <!-- Copyright & trademark information -->
+    <div class="copyright">
+      <p>Running on Ruby of Rails on <%= link_to 'Shoppe', 'http://tryshoppe.com/'  %> and adopted by <%= link_to 'Thomas Ochman', 'http://www.agileventures.org/users/thomas-ochman' %>. </p>
+
+      <p>Innehåll och bilder &copy; <%= Date.today.year %> LashQueen.se. Tredjeparts innehåll och bilder &copy; deras respektive ägare.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
+

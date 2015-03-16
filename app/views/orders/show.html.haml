@@ -1,0 +1,9 @@
+- @page_title = 'Din beställning'
+.checkout
+  %h2 Din beställning
+  %p.intro
+    Dessa varor har lagts till till din beställning. Granska listan och gör eventuella ändringar.
+    Klicka på "Till kassan" när du är redo att gå vidare"
+
+  = render 'shared/order_items', order: current_order
+  
