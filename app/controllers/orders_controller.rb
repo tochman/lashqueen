@@ -38,7 +38,7 @@ class OrdersController < ApplicationController
     item = current_order.order_items.find(params[:order_item_id])
     request.delete? ? item.decrease! : item.increase!
     respond_to do |wants|
-      wants.html { redirect_to request.referer || root_path, :notice => "Quantity has been updated successfully." }
+      wants.html { redirect_to request.referer || root_path, notice: 'Kvantitet har uppdaterats.' }
       wants.json do
         current_order.reload
         if current_order.empty?
