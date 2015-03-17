@@ -1,7 +1,7 @@
 # encoding: UTF-8
 
 # tax rates
-tax_rate = Shoppe::TaxRate.create!(:name => "Moms", :rate => 20.0)
+tax_rate = Shoppe::TaxRate.create!(:name => "Moms", :rate => 25.0)
 exempt_tax = Shoppe::TaxRate.create!(:name => "Export", :rate => 0.0)
 
 # delivery services
