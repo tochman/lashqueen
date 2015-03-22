@@ -1085,6 +1085,12 @@ section.content {
           text-align: left;
           width: 30%;
         }
+        td .image {
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center 0;
+          height: 100%;
+        }
       }
 
       div.description {
