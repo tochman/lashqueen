@@ -25,7 +25,7 @@
           <ul>
             <% for category in Shoppe::ProductCategory.ordered %>
                 <li>
-                  <%= link_to category.name, products_path(category.permalink) %>
+                  <%= link_to category.name.upcase, products_path(category.permalink) %>
                 </li>
             <% end %>
           </ul>
