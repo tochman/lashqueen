@@ -44,5 +44,6 @@ module ApplicationHelper
       "on " + date.strftime("%A")
     end
   end
-  
+
+
 end

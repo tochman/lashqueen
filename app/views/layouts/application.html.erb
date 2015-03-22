@@ -24,7 +24,7 @@
           <ul>
             <% for category in Shoppe::ProductCategory.ordered %>
                 <li>
-                  <%= link_to_unless_current category.name, products_path(category.permalink) %>
+                  <%= link_to category.name, products_path(category.permalink) %>
                 </li>
             <% end %>
           </ul>
@@ -33,7 +33,7 @@
           <%= link_to_unless_current 'Om oss', page_path(:why), nav_item: :why %>
         </li>
         <li>
-          <%= link_to_unless_current 'Frågot & Svar', page_path(:faqs), nav_item: :faqs %>
+          <%= link_to_unless_current 'Frågor & Svar', page_path(:faqs), nav_item: :faqs %>
         </li>
         <li>
           <%= link_to_unless_current 'Kontakta oss', page_path(:contact), nav_item: :contact %>
@@ -44,7 +44,7 @@
     </nav>
     <div class="pull_left">
       <h2><em>LashQueen</em>.</h2>
-      <p class="intro">Produkter för proffs - hos oss hittar du professionella produkter för fransförlängning av
+      <p class="intro">Professionella produkter för fransförlängning av
         högsta kvalité från ledande tillverkare. </p>
     </div>
   </div>
@@ -108,7 +108,7 @@
     </div>
     <!-- Copyright & trademark information -->
     <div class="copyright">
-      <p>Running on Ruby of Rails on <%= link_to 'Shoppe', 'http://tryshoppe.com/'  %> and adopted by <%= link_to 'Thomas Ochman', 'http://www.agileventures.org/users/thomas-ochman' %>. </p>
+      <p>Running on <%= image_tag 'social/ruby.svg' %> Ruby of Rails on <%= link_to 'Shoppe', 'http://tryshoppe.com/'  %> and adopted by <%= link_to 'Thomas Ochman', 'http://www.agileventures.org/users/thomas-ochman' %>. </p>
 
       <p>Innehåll och bilder &copy; <%= Date.today.year %> LashQueen.se. Tredjeparts innehåll och bilder &copy; deras respektive ägare.</p>
     </div>

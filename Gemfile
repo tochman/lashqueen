@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 
 ruby "2.1.5"
-gem 'rails', '4.2.0'
+gem 'rails', '4.2.1'
 gem "airbrake"
 gem "bourbon", "~> 4.1.0"
 gem "coffee-rails", "~> 4.1.0"
@@ -25,6 +25,7 @@ gem "title"
 gem "uglifier"
 gem "unicorn"
 
+
 group :development do
   gem "spring"
   gem "spring-commands-rspec"
@@ -41,6 +42,7 @@ group :development, :test do
   gem "factory_girl_rails"
   gem "pry-rails"
   gem "rspec-rails", "~> 3.1.0"
+  gem 'regressor', git: 'https://github.com/ndea/regressor.git', branch: 'master'
 end
 
 group :test do
