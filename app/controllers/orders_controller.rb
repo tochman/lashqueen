@@ -10,10 +10,10 @@ class OrdersController < ApplicationController
     current_order.destroy
     session[:order_id] = nil
     respond_to do |wants|
-      wants.html { redirect_to root_path, :notice => "Your basket has been emptied successfully."}
+      wants.html { redirect_to root_path, notice: 'Din varukorg har tömts på alla varor'}
       wants.json do
-        flash[:notice] = "Your shopping bag is now empty."
-        render :json => {:status => 'complete', :redirect => root_path}
+        flash[:notice] = 'Din varukorg är nu tom.'
+        render json: {status: 'complete', :redirect => root_path}
       end
     end
   end
@@ -50,8 +50,8 @@ class OrdersController < ApplicationController
     end    
   rescue Shoppe::Errors::NotEnoughStock => e
     respond_to do |wants|
-      wants.html { redirect_to request.referer, :alert => "Unfortunately, we don't have enough stock. We only have #{e.available_stock} items available at the moment. Please get in touch though, we're always receiving new stock." }
-      wants.json { render :json => {:status => 'error', :message => "Unfortunateley, we don't have enough stock to add more items."} }
+      wants.html { redirect_to request.referer, alert: "Tyvärr, lagersadot tillåter inte att du lägger till fler av denna produkt. Vi har bara #{e.available_stock} st på lager just nu." }
+      wants.json { render json: {status: 'error', message: 'Tyvärr, lagersadot tillåter inte att du lägger till fler av denna produkt'} }
     end
   end
 
@@ -59,7 +59,7 @@ class OrdersController < ApplicationController
     if current_order.delivery_service = current_order.available_delivery_services.select { |s| s.id == params[:delivery_service].to_i}.first
       current_order.save
       respond_to do |wants|
-        wants.html { redirect_to request.referer, notice: 'Ändrade frakt metod'}
+        wants.html { redirect_to request.referer, notice: 'Ändrade fraktmetod'}
         wants.json do
           current_order.reload
           render json: {status: 'complete', items: render_to_string(partial: 'shared/order_items.html', locals: {order: current_order})}
