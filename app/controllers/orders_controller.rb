@@ -59,15 +59,15 @@ class OrdersController < ApplicationController
     if current_order.delivery_service = current_order.available_delivery_services.select { |s| s.id == params[:delivery_service].to_i}.first
       current_order.save
       respond_to do |wants|
-        wants.html { redirect_to request.referer, :notice => "Delivery service has been changed"}
+        wants.html { redirect_to request.referer, notice: 'Ändrade frakt metod'}
         wants.json do
           current_order.reload
-          render :json => {:status => 'complete', :items => render_to_string(:partial => 'shared/order_items.html', :locals => {:order => current_order})}
+          render json: {status: 'complete', items: render_to_string(partial: 'shared/order_items.html', locals: {order: current_order})}
         end
       end
     else
       respond_to do |wants|
-        wants.html { redirect_to request.referer, :alert => "You cannot select this delivery method."}
+        wants.html { redirect_to request.referer, :alert => 'Du kan inte välja denna fraktmetod.'}
         wants.json { render :json => {:status => 'error', :message => 'InvalidDeliveryMethod'}, :status => 422 }
       end
     end

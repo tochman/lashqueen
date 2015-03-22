@@ -4,7 +4,7 @@
     %p.amount <b>#{number_to_currency current_order.total_before_tax}</b> (ex. #{Shoppe.settings.tax_name.downcase} &amp; frakt)
     %p.buttons
       = link_to "Granska", basket_path
-      = link_to "Till kassan", checkout_path, :class => 'checkout'
+      = link_to "Till kassan", checkout_path, class: 'checkout'
 
   - else
-    %p.empty <b>Din korg är tom.</b> 
+    %p.empty <b>Varukorgen är tom.</b>

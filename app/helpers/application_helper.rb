@@ -39,11 +39,22 @@ module ApplicationHelper
     date = next_delivery_cutoff.to_date + 1.day
     case date
     when Date.tomorrow
-      "tomorrow"
+      'i morgon'
     else
-      "on " + date.strftime("%A")
+      'på ' + date.strftime('%A')
     end
   end
 
+  def shared_meta_keywords
+    'singelfransar, fransar, lösfransar, ögonfransförlängning, fransförlängning, flares,' +
+        ' silkesfransar, minkfransar, c-fransar, b-fransar, d-fransar, j-fransar.'+
+        ' billiga fransar, billiga produkter ögonfransförlängning'
+  end
+
+  def default_meta_description
+    @default_meta_description ||= '' +
+        'Stort utbud av professionella produkter och singelfransar för ögonfransförlängning. '+
+        'Vi har allt, C-fransar, B-fransar, J-fransar, D-fransar, silkesfransar. '
+  end
 
 end

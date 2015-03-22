@@ -19,7 +19,9 @@ gem "pg"
 gem "rack-timeout"
 gem "recipient_interceptor"
 gem "refills"
+gem 'bootstrap-sass', '~> 3.3.4'
 gem 'sass-rails', '~> 5.0.1'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem "simple_form"
 gem "title"
 gem "uglifier"

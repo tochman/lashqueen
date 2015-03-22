@@ -29,7 +29,7 @@
           - if defined?(readonly)
             = order.delivery_service.name
           - else
-            = form_tag change_delivery_service_path do 
+            = form_tag change_delivery_service_path do
               = select_tag 'delivery_service', options_from_collection_for_select(order.available_delivery_services, :id, :name, order.delivery_service.id)
         %td.money= number_to_currency order.delivery_price
     %tr.subtotal

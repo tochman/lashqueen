@@ -2,6 +2,7 @@
 <html>
 <head>
   <title><%= [@page_title, Shoppe.settings.store_name].join('-') %></title>
+  <%= render 'shared/meta_tags' %>
   <%= stylesheet_link_tag :application, media: 'all' %>
   <%= javascript_include_tag :application %>
   <%= csrf_meta_tags %>
@@ -108,7 +109,7 @@
     </div>
     <!-- Copyright & trademark information -->
     <div class="copyright">
-      <p>Running on <%= image_tag 'social/ruby.svg' %> Ruby of Rails on <%= link_to 'Shoppe', 'http://tryshoppe.com/'  %> and adopted by <%= link_to 'Thomas Ochman', 'http://www.agileventures.org/users/thomas-ochman' %>. </p>
+      <p>Running on <%= image_tag 'social/ruby.svg' %> on Rails on <%= link_to 'Shoppe', 'http://tryshoppe.com/'  %> and adopted by <%= link_to 'Thomas Ochman', 'http://www.agileventures.org/users/thomas-ochman' %>. </p>
 
       <p>Innehåll och bilder &copy; <%= Date.today.year %> LashQueen.se. Tredjeparts innehåll och bilder &copy; deras respektive ägare.</p>
     </div>
