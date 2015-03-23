@@ -14,3 +14,5 @@
 # ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.acronym 'RESTful'
 # end
+
+require "#{Rails.root}/lib/inflections.rb"

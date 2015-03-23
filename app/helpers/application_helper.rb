@@ -45,6 +45,10 @@ module ApplicationHelper
     end
   end
 
+  def articles_text(order)
+    order.total_items > 1 ? order.total_items.to_s + ' produkt'.swedish_pluralize : order.total_items.to_s + ' produkt'
+  end
+
   def shared_meta_keywords
     'singelfransar, fransar, lösfransar, ögonfransförlängning, fransförlängning, flares,' +
         ' silkesfransar, minkfransar, c-fransar, b-fransar, d-fransar, j-fransar.'+

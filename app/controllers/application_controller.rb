@@ -26,7 +26,4 @@ class ApplicationController < ActionController::Base
   end
   
   helper_method :current_order, :has_order?
-
-
-  
 end
