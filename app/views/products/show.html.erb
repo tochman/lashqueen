@@ -16,7 +16,7 @@
         <% for variant in @product.variants %>
             <tr>
               <% if variant.default_image %>
-                  <td class="image" style="background-image:url(<%= variant.default_image.path %>)">
+                  <td class="image" style="background-color: #ffffff; background-image:url(<%= variant.default_image.path %>); background-repeat: no-repeat; background-size: auto 100%; background-position: center 0;">
                   </td>
               <% end %>
               <td>

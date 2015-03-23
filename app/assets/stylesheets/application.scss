@@ -1087,7 +1087,7 @@ section.content {
         }
         td .image {
           background-repeat: no-repeat;
-          background-size: contain;
+          background-size: auto 100%;
           background-position: center 0;
           height: 100%;
         }
