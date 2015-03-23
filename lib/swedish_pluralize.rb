@@ -91,14 +91,11 @@ module SwedishPluralize
     end
   end
 
-  #class Inflections < ::ActiveSupport::Inflector::Inflections
-  #end
-
   def self.inflections
     if block_given?
-      yield Inflections.instance
+      yield ActiveSupport::Inflector.inflections(:sv)
     else
-      Inflections.instance
+      ActiveSupport::Inflector.inflections(:sv)
     end
   end
 
