@@ -11,9 +11,9 @@ GIT
 
 GIT
   remote: https://github.com/tryshoppe/shoppe
-  revision: 63287e4b35a04da648055ecf0ba005f8cd516e27
+  revision: 4a5f072fe5d497852093f2407278dc457f4889d8
   specs:
-    shoppe (1.0.4)
+    shoppe (1.0.5)
       bcrypt (>= 3.1.2, < 3.2)
       dynamic_form (~> 1.1, >= 1.1.4)
       haml (>= 4.0, < 5.0)
