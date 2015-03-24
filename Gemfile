@@ -5,7 +5,7 @@ ruby '2.1.5'
 gem 'rails', '4.2.1'
 gem 'airbrake'
 gem 'bourbon', '~> 4.1.0'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '~> 4.0.0'
 gem 'delayed_job_active_record'
 gem 'email_validator'
 gem 'flutie'
@@ -64,6 +64,7 @@ group :staging, :production do
 end
 #Adding gems for e-commerce solution
 gem 'shoppe', git: 'https://github.com/tryshoppe/shoppe'
-gem 'klarna-checkout'
+#gem 'klarna-checkout'
+gem 'shoppe-stripe', git: 'https://github.com/tochman/shoppe-stripe', require: 'shoppe/stripe'
 gem 'redcarpet'
 gem 'faker'
