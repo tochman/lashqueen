@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 ruby '2.1.5'
 gem 'rails', '4.2.1'
-gem 'airbrake'
+#gem 'airbrake'
 gem 'bourbon', '~> 4.1.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'delayed_job_active_record'

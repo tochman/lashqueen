@@ -15,4 +15,5 @@
 #   inflect.acronym 'RESTful'
 # end
 
+
 require "#{Rails.root}/lib/inflections.rb"
