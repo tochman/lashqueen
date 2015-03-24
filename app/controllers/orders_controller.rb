@@ -122,7 +122,7 @@ class OrdersController < ApplicationController
     if request.patch?
       begin
         current_order.confirm!
-        current_order.payments.create(:method => 'Credit Card', :amount => current_order.total, :reference => rand(10000) + 10000, :refundable => true)
+        #current_order.payments.create(:method => 'Credit Card', :amount => current_order.total, :reference => rand(10000) + 10000, :refundable => true)
         session[:order_id] = nil
         redirect_to root_path, :notice => 'Din beställning har skickats iväg. Kolla din inbox!'
       rescue Shoppe::Errors::PaymentDeclined => e
