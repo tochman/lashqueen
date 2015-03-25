@@ -1,6 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "reset";
+@import url(http://fonts.googleapis.com/css?family=Cinzel);
 
 $font: Lato, Arial, sans-serif;
 
@@ -21,6 +22,10 @@ ul {
   list-style: none;
 }
 
+h1 .main-brand {
+  font-family: 'Cinzel', serif;
+  font-weight: 400;
+}
 
 //
 // The inner container for the page
@@ -85,7 +90,7 @@ header.main {
         float: left;
         margin-right: 40px;
       }
-      li a{
+      li a {
         color: #4e4e4e;
         display: block;
         text-decoration: none;
@@ -1322,4 +1327,9 @@ div.overlay {
 .pull-left {
   float: left;
 
+}
+
+h1 .main-brand {
+  font-family: 'Cinzel', serif;
+  font-weight: 400;
 }
