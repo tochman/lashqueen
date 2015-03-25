@@ -46,6 +46,7 @@
     </nav>
     <div class="pull_left">
       <h2><em>LashQueen</em></h2>
+
       <p class="intro">Professionella produkter för fransförlängning av
         högsta kvalité från ledande tillverkare. </p>
     </div>
@@ -108,18 +109,23 @@
         </li>
       </ul>
     </div>
-    <!-- Copyright & trademark information -->
-    <div class="copyright">
-      <p>Innehåll och bilder &copy; <%= Date.today.year %> LashQueen.se. Tredjeparts innehåll och bilder &copy; deras respektive ägare.</p>
-    </div>
+
+    <!--div class="copyright">
+
+    </div-->
   </div>
 </footer>
-<footer class="main">
-  <div class="inner">
+<!-- Copyright & trademark information -->
 
-  <small>Running on <%= image_tag 'social/ruby.svg' %> on Rails using <%= link_to 'Shoppe', 'http://tryshoppe.com/'  %> e-commerce engine and adopted by <%= link_to 'Thomas Ochman/AgileVentures', 'http://www.agileventures.org/users/thomas-ochman' %>. </small>
-</div>
-</footer>
+  <div class="inner" style="color: #808080; font-size: 12px;" >
+    <p>Innehåll och bilder &copy; <%= Date.today.year %> LashQueen.se. Tredjeparts innehåll och bilder &copy; deras
+      respektive ägare.
+    </p>
+    <p>Running on <%= image_tag 'social/ruby.svg', style: 'height: 11px; width: 11px;' %> on Rails using <%= link_to 'Shoppe', 'http://tryshoppe.com/' %>
+      e-commerce engine and adopted
+      by <%= link_to 'Thomas Ochman/AgileVentures', 'http://www.agileventures.org/users/thomas-ochman' %>.
+    </p>
+  </div>
 
 </body>
 </html>

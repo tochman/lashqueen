@@ -6,12 +6,16 @@
 <% @page_title = 'Checkout' %>
 <%= render 'orders/checkout_sidebar' %>
 <div class="checkout">
-  <p class="secure">Secure connection</p>
 
-  <h3>Pay using your credit/debit card</h3>
+
+
   <%= form_tag({:controller => 'orders', :action => 'payment'}, :id => 'stripeForm', :class => 'stripeForm') do %>
       <%= hidden_field_tag 'stripe_token', '', name: 'stripe_token', data: {stripe: 'token'} %>
       <%= field_set_tag nil, :class => 'payment' do %>
+          <h3>Betala med ditt kreditkort</h3>
+          <p class="secure"> <%= link_to (image_tag 'solid.png'), 'https://stripe.com/se/features#seamless-security' %> </p>
+          <%= image_tag 'cards_visa_amex_mc_diners.png' %>
+
           <dl>
             <dt>
               <%= label_tag 'card_number', 'Kortnummer' %>
@@ -26,16 +30,16 @@
             </dt>
             <dd class="expiry">
               <%= select_tag nil, options_for_select((1..12).to_a), data: {stripe: 'exp_month'} %>
-              <%= select_tag nil, options_for_select((Date.today.year..Date.today.year + 10).to_a), data: {stripe: 'exp_year'} %>
+              <%= select_tag nil, options_for_select((Date.today.year..Date.today.year + 10).to_a), data: {stripe: 'exp_year'}, :class => 'year' %>
             </dd>
           </dl>
           <dl>
             <dt>
-              <%= label_tag 'cvc', 'Security Code' %>
+              <%= label_tag 'cvc', 'Säkerhetskod' %>
             </dt>
             <dd class="cvc">
               <%= text_field_tag 'cvc', '', :name => nil, maxlength: 4, data: {stripe: 'cvc'} %>
-              <span>This is the 3 digit number on the back of your card.</span>
+              <span>3 siffrig kod på baksidan av kortet.</span>
             </dd>
           </dl>
       <% end %>
