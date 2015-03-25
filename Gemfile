@@ -44,7 +44,7 @@ group :development, :test do
   gem "byebug"
   gem "dotenv-rails"
   gem "factory_girl_rails"
-  gem "pry-rails"
+  gem "pry"
   gem "rspec-rails", "~> 3.1.0"
   gem 'regressor', git: 'https://github.com/ndea/regressor.git', branch: 'master'
 end

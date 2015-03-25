@@ -7,4 +7,8 @@ class String
     return self if self.blank?
     SwedishPluralize.pluralize(self)
   end
+
+  def clean_string
+      self.tr('äåö', 'aao')
+  end
 end

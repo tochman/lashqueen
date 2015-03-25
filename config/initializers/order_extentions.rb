@@ -10,6 +10,8 @@ module Shoppe
                                                  Shoppe.settings.stripe_api_key)
             self.properties['stripe_customer_token'] = customer.id
             self.save
+            card = customer.sources.retrieve(customer.sources.data[0][:id])
+            card.name = "#{first_name} #{last_name}"
           elsif token =~ /\Acus/ && self.properties[:stripe_customer_token] != token
             self.properties['stripe_customer_token'] = token
             self.save
