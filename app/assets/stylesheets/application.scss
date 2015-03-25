@@ -47,12 +47,18 @@ div#flash-notice {
 }
 
 div#flash-alert {
-  background: #4e4e4e;
+  background: rgba(78, 2, 9, 0.87);
   color: #fff;
   text-align: center;
   padding: 8px;
   font-size: 0.9em;
   font-weight: bold;
+}
+
+img.cards {
+  width: 130px;
+  margin-left: 8px;
+  margin-top: 8px;
 }
 
 //

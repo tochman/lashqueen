@@ -1,11 +1,11 @@
 class OrdersController < ApplicationController
-  
+
   before_filter(:except => :status) { redirect_to root_path unless has_order? }
-  
+
   def status
     @order = Shoppe::Order.find_by_token!(params[:token])
   end
-  
+
   def destroy
     current_order.destroy
     session[:order_id] = nil
@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
       end
     end
   end
-  
+
   def remove_item
     item = current_order.order_items.find(params[:order_item_id])
     if current_order.order_items.count == 1
@@ -33,7 +33,7 @@ class OrdersController < ApplicationController
       end
     end
   end
-  
+
   def change_item_quantity
     item = current_order.order_items.find(params[:order_item_id])
     request.delete? ? item.decrease! : item.increase!
@@ -47,7 +47,7 @@ class OrdersController < ApplicationController
           render :json => {:status => 'complete', :items => render_to_string(:partial => 'shared/order_items.html', :locals => {:order => current_order})}
         end
       end
-    end    
+    end
   rescue Shoppe::Errors::NotEnoughStock => e
     respond_to do |wants|
       wants.html { redirect_to request.referer, alert: "Tyvärr, lagersadot tillåter inte att du lägger till fler av denna produkt. Vi har bara #{e.available_stock} st på lager just nu." }
@@ -72,7 +72,7 @@ class OrdersController < ApplicationController
       end
     end
   end
-  
+
   def checkout
     @order = Shoppe::Order.find(current_order.id)
     if request.patch?
@@ -90,21 +90,23 @@ class OrdersController < ApplicationController
   def payment
     @order = Shoppe::Order.find(session[:order_id])
     if request.post?
-      if @order.accept_stripe_token(params[:stripe_token])
+      if @order.accept_stripe_token(params[:stripe_token]) && !@order.errors.any?
         redirect_to checkout_confirmation_path
+      elsif @order.errors.any?
+        flash.now[:alert] = @order.errors.full_messages.join(' ')
       else
         flash.now[:notice] = 'Could not exchange Stripe token. Please try again.'
       end
     end
   end
 
-  
+
   def confirmation
     unless current_order.confirming?
       redirect_to checkout_path
       return
     end
-    
+
     if request.patch?
       begin
         current_order.confirm!
@@ -120,5 +122,5 @@ class OrdersController < ApplicationController
       end
     end
   end
-    
+
 end

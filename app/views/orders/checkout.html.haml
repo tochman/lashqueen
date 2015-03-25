@@ -2,7 +2,7 @@
 = render 'checkout_sidebar'
 
 .checkout
-  %p.secure Säker anslutning till betalserver
+  %p.secure= link_to (image_tag 'solid.png'), 'https://stripe.com/se/features#seamless-security'
   %h2 Lägg din beställning
   %p.intro
     Granska din beställning innan du går vidare
