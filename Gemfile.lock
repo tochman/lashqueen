@@ -1,4 +1,23 @@
 GIT
+  remote: git://github.com/tochman/shoppe.git
+  revision: 75a105f5d78548e96ce943febc1c4288d81a4b14
+  branch: develop
+  specs:
+    shoppe (1.0.5)
+      bcrypt (>= 3.1.2, < 3.2)
+      dynamic_form (~> 1.1, >= 1.1.4)
+      haml (>= 4.0, < 5.0)
+      jquery-rails (>= 3, < 4.1)
+      kaminari (>= 0.14.1, < 0.17)
+      nifty-attachments (>= 1.0.3, < 2.0.0)
+      nifty-dialog (>= 1.0.7, < 1.1)
+      nifty-key-value-store (>= 1.0.1, < 2.0.0)
+      nifty-utils (>= 1.0, < 1.1)
+      rails (>= 4.0.0, < 5.0)
+      ransack (>= 1.2.0, < 1.6.3)
+      roo (>= 1.13.0, < 1.14)
+
+GIT
   remote: https://github.com/ndea/regressor.git
   revision: 22b8a6d79ddad791cd296bf1e73e09a86abd0d53
   branch: master
@@ -17,24 +36,6 @@ GIT
       coffee-rails (~> 4)
       shoppe (~> 1.0.5)
       stripe (~> 1.8.7)
-
-GIT
-  remote: https://github.com/tryshoppe/shoppe
-  revision: 4a5f072fe5d497852093f2407278dc457f4889d8
-  specs:
-    shoppe (1.0.5)
-      bcrypt (>= 3.1.2, < 3.2)
-      dynamic_form (~> 1.1, >= 1.1.4)
-      haml (>= 4.0, < 5.0)
-      jquery-rails (>= 3, < 4.1)
-      kaminari (>= 0.14.1, < 0.17)
-      nifty-attachments (>= 1.0.3, < 2.0.0)
-      nifty-dialog (>= 1.0.7, < 1.1)
-      nifty-key-value-store (>= 1.0.1, < 2.0.0)
-      nifty-utils (>= 1.0, < 1.1)
-      rails (>= 4.0.0, < 5.0)
-      ransack (>= 1.2.0, < 1.6.3)
-      roo (>= 1.13.0, < 1.14)
 
 GEM
   remote: https://rubygems.org/

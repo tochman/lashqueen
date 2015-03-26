@@ -18,7 +18,7 @@
         </p>
         <% unless product.has_variants? %>
             <p class="price">
-              <%= "#{product.price} kr" %>
+              <%= "#{number_to_currency product.price_including_tax, format: '%n %u' }" %>
             </p>
         <% end %>
       </li>

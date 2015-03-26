@@ -299,7 +299,7 @@ section.content {
     //
     ul.products {
       font-size: 0.9em;
-      margin: 25px 0;
+      margin: 20px 0;
       overflow: hidden;
       li {
         margin-bottom: 15px;
@@ -310,12 +310,12 @@ section.content {
           background-repeat: no-repeat;
           background-size: contain;
           background-position: center 0;
-          width: 50%;
+          width: 40%;
           height: 120px;
           float: left;
         }
         h4 {
-          margin-left: 50%;
+          margin-left: 40%;
           color: #216D74;
           font-size: 1.1em;
         }
@@ -326,7 +326,7 @@ section.content {
           text-decoration: underline;
         }
         p.info {
-          margin-left: 50%;
+          margin-left: 40%;
           margin: 6px 0 10px 0;
           font-size: 0.85em;
           line-height: 1.7;
@@ -350,7 +350,7 @@ section.content {
           background-color: #535353;
         }
         p.price {
-          margin-left: 50%;
+          margin-left: 40%;
           color: #222;
           font-size: 1.0em;
           font-weight: bold;

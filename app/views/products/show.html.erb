@@ -29,7 +29,7 @@
                   <%= variant.name %>
                 </h4>
                 <p class="price">
-                  <%= number_to_currency variant.price %>
+                  <%= number_to_currency variant.price, format: '%n %u' %>
                 </p>
               </td>
               <td class="buy">
@@ -47,7 +47,7 @@
       <div class="optionsBox">
         <div class="top">
           <p class="price">
-            <%= number_to_currency @product.price %>
+            <%= number_to_currency @product.price, format: '%n %u' %>
           </p>
           <%= form_tag buy_product_path(@product.product_category.permalink, @product.permalink), :class => (@product.in_stock? ? 'in-stock' : 'no-stock') do %>
               <p>
@@ -74,12 +74,12 @@
             <ul>
               <% if @product.data_sheet %>
                   <li class="item datasheet">
-                    <%= link_to "Sammansättning", @product.data_sheet.path %>
+                    <%= link_to 'Sammansättning', @product.data_sheet.path %>
                   </li>
               <% end %>
               <% unless @product.in_the_box.blank? %>
                   <li class="item box">
-                    <%= link_to "Vad som ingår" %>
+                    <%= link_to 'Vad som ingår' %>
                     <div class="in_the_box">
                       <h3>Vad som ingår</h3>
                       <%= markdown @product.in_the_box %>
@@ -87,7 +87,7 @@
                   </li>
               <% end %>
               <li class="item ask">
-                <%= mail_to Shoppe.settings.email_address, "Ställ en fråga", subject: "Fråga om #{@product.name}" %>
+                <%= mail_to Shoppe.settings.email_address, 'Ställ en fråga', subject: "Fråga om #{@product.name}" %>
               </li>
             </ul>
           </div>
