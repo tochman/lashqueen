@@ -33,9 +33,9 @@
                 </p>
               </td>
               <td class="buy">
-                <%= form_tag buy_product_path(@product.product_category.permalink, @product.permalink, :variant => variant.id), :class => (variant.in_stock? ? 'in-stock' : 'no-stock') do %>
+                <%= form_tag buy_product_path(@product.product_category.permalink, @product.permalink, variant: variant.id), class: (variant.in_stock? ? 'in-stock' : 'no-stock') do %>
                     <p>
-                      <%= select_tag 'antal', options_for_select([1, 2, 3, 4, 5, 6, 7, 8, 9]), disabled: !variant.in_stock? %>
+                      <%= select_tag 'quantity', options_for_select([1, 2, 3, 4, 5, 6, 7, 8, 9]), disabled: !variant.in_stock? %>
                       <%= submit_tag 'Lägg till..', disabled: !variant.in_stock? %>
                     </p>
                 <% end %>
@@ -49,10 +49,10 @@
           <p class="price">
             <%= number_to_currency @product.price_including_tax, format: '%n %u'  %>
           </p>
-          <%= form_tag buy_product_path(@product.product_category.permalink, @product.permalink), :class => (@product.in_stock? ? 'in-stock' : 'no-stock') do %>
+          <%= form_tag buy_product_path(@product.product_category.permalink, @product.permalink), class: (@product.in_stock? ? 'in-stock' : 'no-stock') do %>
               <p>
-                <%= select_tag 'antal', options_for_select([1, 2, 3, 4, 5, 6, 7, 8, 9]), :disabled => !@product.in_stock? %>
-                <%= submit_tag 'Lägg till...', :disabled => !@product.in_stock? %>
+                <%= select_tag 'quantity', options_for_select([1, 2, 3, 4, 5, 6, 7, 8, 9]), disabled: !@product.in_stock? %>
+                <%= submit_tag 'Lägg till...', disabled: !@product.in_stock? %>
               </p>
           <% end %>
         </div>

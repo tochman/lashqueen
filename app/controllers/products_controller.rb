@@ -30,7 +30,7 @@ class ProductsController < ApplicationController
     current_order.order_items.add_item(product_to_order, params[:quantity].blank? ? 1 : params[:quantity].to_i)
     respond_to do |wants|
       wants.html { redirect_to request.referer }
-      wants.json { render :json => {:added => true} }
+      wants.json { render json: {added: true} }
     end
   rescue Shoppe::Errors::NotEnoughStock => e
     respond_to do |wants|
