@@ -12,6 +12,13 @@ module Shoppe
             self.save
             card = customer.sources.retrieve(customer.sources.data[0][:id])
             card.name = "#{first_name} #{last_name}"
+            card.address_line1 = billing_address1
+            card.address_line2 = billing_address2
+            card.address_city = billing_address3
+            card.address_zip = billing_postcode
+            card.address_country = Shoppe::Country.find_by(id: billing_country_id).name
+            card.save
+            @card = card
           elsif token =~ /\Acus/ && self.properties[:stripe_customer_token] != token
             self.properties['stripe_customer_token'] = token
             self.save

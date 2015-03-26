@@ -2,6 +2,7 @@
 = render 'checkout_sidebar'
 .checkout
   %h2 Allt ser bra ut!
+  %p=payment_details(current_order.properties['stripe_customer_token'])
   %p.intro
     Kontrollera din beställning en sista gång. Om allting stämmer slickar du på "Slutför".
   = render 'shared/order_items', :order => current_order, :readonly => true

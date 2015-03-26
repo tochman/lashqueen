@@ -106,7 +106,7 @@ class OrdersController < ApplicationController
       redirect_to checkout_path
       return
     end
-
+    @paid_with =
     if request.patch?
       begin
         current_order.confirm!
