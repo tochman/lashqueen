@@ -29,7 +29,7 @@
                   <%= variant.name %>
                 </h4>
                 <p class="price">
-                  <%= number_to_currency variant.price, format: '%n %u' %>
+                  <%= number_to_currency variant.price_including_tax, format: '%n %u'  %>
                 </p>
               </td>
               <td class="buy">
@@ -47,7 +47,7 @@
       <div class="optionsBox">
         <div class="top">
           <p class="price">
-            <%= number_to_currency @product.price, format: '%n %u' %>
+            <%= number_to_currency @product.price_including_tax, format: '%n %u'  %>
           </p>
           <%= form_tag buy_product_path(@product.product_category.permalink, @product.permalink), :class => (@product.in_stock? ? 'in-stock' : 'no-stock') do %>
               <p>
