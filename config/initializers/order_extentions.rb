@@ -32,6 +32,10 @@ module Shoppe
         end
       end
 
+      def total_without_delivery
+        order_items.inject(BigDecimal(0)) { |t, i| t + i.total }
+      end
+
 
       private
 
