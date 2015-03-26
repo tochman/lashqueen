@@ -3,9 +3,11 @@
 <head>
   <title><%= [@page_title, Shoppe.settings.store_name].join('-') %></title>
   <%= render 'shared/meta_tags' %>
+  <%= csrf_meta_tags %>
+  <%= render 'shared/app_icons'  %>
   <%= stylesheet_link_tag :application, media: 'all' %>
   <%= javascript_include_tag :application %>
-  <%= csrf_meta_tags %>
+
   <%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' %>
   <%= yield :head %>
   <%= yield :js %>
