@@ -174,7 +174,7 @@ header.main {
 
   // Offer/contact bar
   .bar {
-    background: rgba(28, 109, 117, 0.6);
+    background: rgba(255, 186, 210, 0.6);
     padding: 14px 0;
     overflow: hidden;
     p {
@@ -258,25 +258,25 @@ section.content {
       font-size: 0.9em;
       h2 {
         font-size: 2.0em;
-        color: #216d74;
+        color: #FFBAD2;
         margin-top: 15px;
       }
 
       h3 {
         font-size: 1.6em;
-        color: #216d74;
+        color: #FFBAD2;
         margin-top: 12px;
       }
 
       h4 {
         font-size: 1.4em;
-        color: #216d74;
+        color: #FFBAD2;
         margin-top: 12px;
 
       }
       h4 {
         font-size: 1.1em;
-        color: #216d74;
+        color: #FFBAD2;
         margin-top: 10px;
 
       }
@@ -316,7 +316,7 @@ section.content {
         }
         h4 {
           margin-left: 40%;
-          color: #216D74;
+          color: #FFBAD2;
           font-size: 1.1em;
         }
         h4 a {
@@ -364,7 +364,7 @@ section.content {
     div.category {
       h2 {
         font-size: 2.0em;
-        color: #216d74;
+        color: #FFBAD2;
       }
       p.intro {
         margin-top: 5px;
@@ -387,7 +387,7 @@ section.content {
     div.status {
       h2 {
         font-size: 2.0em;
-        color: #216d74;
+        color: #FFBAD2;
       }
       p.intro {
         margin: 15px 0;
@@ -551,7 +551,7 @@ section.content {
 
       h2 {
         font-size: 2.0em;
-        color: #216d74;
+        color: #FFBAD2;
       }
       p.intro {
         margin: 15px 0;
@@ -590,7 +590,7 @@ section.content {
         text-align: right;
         margin-top: 30px;
         input {
-          background: image-url('card.svg') #226E75 no-repeat 22px 9px;
+          background: image-url('card.svg') #FFBAD2 no-repeat 22px 9px;
           background-size: 20px;
           border: 0;
           padding: 8px 22px 8px 54px;
@@ -854,7 +854,7 @@ section.content {
       }
       h2 {
         font-size: 2.0em;
-        color: #216d74;
+        color: #FFBAD2;
       }
       p.intro {
         font-size: 0.8em;
@@ -885,7 +885,7 @@ section.content {
         }
         td h4 {
           font-size: 1.2em;
-          color: #216D74;
+          color: #FFBAD2;
         }
         td p.stock {
           float: right;
@@ -911,7 +911,7 @@ section.content {
         td form {
           input {
             float: right;
-            background: #256D73;
+            background: #FFBAD2;
             border: 0;
             font-family: $font;
             height: 24px;
@@ -932,7 +932,6 @@ section.content {
             font-weight: bold;
             padding: 4px 10px;
             font-family: $font;
-            color: #256D73;
           }
           &.no-stock {
             select {
@@ -964,7 +963,7 @@ section.content {
             margin-left: 50%;
             input {
               float: right;
-              background: #256D73;
+              background: #FFBAD2;
               border: 0;
               font-family: $font;
               height: 24px;
@@ -985,7 +984,6 @@ section.content {
               font-weight: bold;
               padding: 4px 10px;
               font-family: $font;
-              color: #256D73;
             }
             &.no-stock {
               select {
@@ -1053,7 +1051,7 @@ section.content {
             }
             ul li.item a:hover {
               text-decoration: underline;
-              color: #256D73;
+              color: #FFBAD2;
             }
 
             div.in_the_box {
@@ -1134,9 +1132,9 @@ section.content {
     float: right;
     width: 25%;
     div.basket {
-      background: image-url('bag.svg') #DFF0F1 no-repeat 18px 18px;
+      background: image-url('bag.svg') rgba(255, 186, 210, 0.2) no-repeat 18px 18px;
       background-size: 14px;
-      color: #216D74;
+      color: #808080;
       font-size: 0.8em;
       line-height: 1.6;
       border-bottom-left-radius: 8px;
@@ -1149,7 +1147,7 @@ section.content {
         a {
           display: inline-block;
           padding: 2px 7px;
-          background: #226E75;
+          background: #FFBAD2;
           color: #fff;
           text-decoration: none;
           border-radius: 4px;

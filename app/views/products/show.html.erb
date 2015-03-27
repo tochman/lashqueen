@@ -61,13 +61,12 @@
             <% if @product.in_stock? %>
                 <p class="yes">I lager</p>
 
-                <p class="time">Order in the next <b>#{time_until_next_delivery_cut_off}</b> for delivery
-                  #{next_delivery_day}.</p>
+                <p class="time">Beställ inom <b><%= time_until_next_delivery_cut_off %></b> för leverans
+                  <%= next_delivery_day %>.</p>
             <% else %>
                 <p class="no">Restnoterad</p>
 
-                <p class="time">Sorry - we don't have any stock of this product at the moment. #{link_to "Let me know
-                  when you do"}.</p>
+                <p class="time">Tyvärr, denna produkt finns inte på lager <b><%= link_to 'Bevaka!' %></b> </p>
             <% end %>
           </div>
           <div class="links">

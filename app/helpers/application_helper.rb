@@ -30,8 +30,8 @@ module ApplicationHelper
     whole_hours = (minutes / 60).floor
     remaining_minutes = (minutes - (whole_hours * 60)).to_i
     Array.new.tap do |a|
-      a << pluralize(whole_hours, 'hour') if whole_hours > 0
-      a << pluralize(remaining_minutes, 'minute') if remaining_minutes > 0
+      a << sv_pluralize(whole_hours, 'timme') if whole_hours > 0
+      a << sv_pluralize(remaining_minutes, 'minuter') if remaining_minutes > 0
     end.to_sentence
   end
   
@@ -41,12 +41,29 @@ module ApplicationHelper
     when Date.tomorrow
       'i morgon'
     else
-      'på ' + date.strftime('%A')
+      'på ' + sv_weekdays(date).to_s
+    end
+  end
+
+  def sv_weekdays(date)
+    case date.strftime('%A')
+      when 'Monday'
+        'måndag'
+      when 'Tuesday'
+        'tisdag'
+      when 'Wednesday'
+        'onsdag'
+      when 'Thursday'
+        'torsdag'
+      when 'Friday'
+        'fredag'
+      else
+        'Vi levererar inte på helgerna'
     end
   end
 
   def articles_text(order)
-    order.total_items > 1 ? order.total_items.to_s + ' produkt'.swedish_pluralize : order.total_items.to_s + ' produkt'
+    sv_pluralize(order.total_items, 'produkt')
   end
 
   def shared_meta_keywords
@@ -59,6 +76,16 @@ module ApplicationHelper
     @default_meta_description ||= '' +
         'Stort utbud av professionella produkter och singelfransar för ögonfransförlängning. '+
         'Vi har allt, C-fransar, B-fransar, J-fransar, D-fransar, silkesfransar. '
+  end
+
+  def sv_pluralize(count, singular, plural = nil)
+    word = if (count == 1 || count =~ /^1(\.0+)?$/)
+             singular
+           else
+             plural || singular.swedish_pluralize
+           end
+
+    "#{count || 0} #{word}"
   end
 
 end
