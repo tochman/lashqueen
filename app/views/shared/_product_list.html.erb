@@ -1,5 +1,5 @@
 <ul class="products">
-  <% for product in products.includes(:default_image, :product_category) %>
+  <% for product in products.includes(:default_image, :product_categories) %>
       <li>
         <div class="img" style="<%= product_image_class(product) %>"></div>
         <h4>

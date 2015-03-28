@@ -197,34 +197,48 @@ ActiveRecord::Schema.define(version: 20150316122817) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.integer  "depth"
+    t.string   "ancestral_permalink"
+    t.boolean  "permalink_includes_ancestors", default: false
   end
 
+  add_index "shoppe_product_categories", ["lft"], name: "index_shoppe_product_categories_on_lft", using: :btree
   add_index "shoppe_product_categories", ["permalink"], name: "index_shoppe_product_categories_on_permalink", using: :btree
+  add_index "shoppe_product_categories", ["rgt"], name: "index_shoppe_product_categories_on_rgt", using: :btree
+
+  create_table "shoppe_product_categorizations", force: :cascade do |t|
+    t.integer "product_id",          null: false
+    t.integer "product_category_id", null: false
+  end
+
+  add_index "shoppe_product_categorizations", ["product_category_id"], name: "categorization_by_product_category_id", using: :btree
+  add_index "shoppe_product_categorizations", ["product_id"], name: "categorization_by_product_id", using: :btree
 
   create_table "shoppe_products", force: :cascade do |t|
     t.integer  "parent_id"
-    t.integer  "product_category_id"
     t.string   "name"
     t.string   "sku"
     t.string   "permalink"
     t.text     "description"
     t.text     "short_description"
-    t.boolean  "active",                                       default: true
-    t.decimal  "weight",              precision: 8,  scale: 3, default: 0.0
-    t.decimal  "price",               precision: 12, scale: 6, default: 0.0
-    t.decimal  "cost_price",          precision: 8,  scale: 2, default: 0.0
+    t.boolean  "active",                                     default: true
+    t.decimal  "weight",            precision: 8,  scale: 3, default: 0.0
+    t.decimal  "price",             precision: 12, scale: 6, default: 0.0
+    t.decimal  "cost_price",        precision: 8,  scale: 2, default: 0.0
     t.integer  "tax_rate_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "featured",                                     default: false
+    t.boolean  "featured",                                   default: false
     t.text     "in_the_box"
-    t.boolean  "stock_control",                                default: true
-    t.boolean  "default",                                      default: false
+    t.boolean  "stock_control",                              default: true
+    t.boolean  "default",                                    default: false
   end
 
   add_index "shoppe_products", ["parent_id"], name: "index_shoppe_products_on_parent_id", using: :btree
   add_index "shoppe_products", ["permalink"], name: "index_shoppe_products_on_permalink", using: :btree
-  add_index "shoppe_products", ["product_category_id"], name: "index_shoppe_products_on_product_category_id", using: :btree
   add_index "shoppe_products", ["sku"], name: "index_shoppe_products_on_sku", using: :btree
 
   create_table "shoppe_settings", force: :cascade do |t|

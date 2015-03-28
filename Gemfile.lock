@@ -1,9 +1,9 @@
 GIT
   remote: git://github.com/tochman/shoppe.git
-  revision: 1245804077fc2440465bcb99e56f1d100c318bc1
+  revision: 0cda967dd0c9bd196d0401e8811c4d53c98c9d44
   branch: categories
   specs:
-    shoppe (1.0.5)
+    shoppe (1.0.5.1)
       awesome_nested_set (~> 3.0.1)
       bcrypt (>= 3.1.2, < 3.2)
       coffee-rails (~> 4)
