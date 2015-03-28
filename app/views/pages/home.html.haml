@@ -1,9 +1,9 @@
 - active_nav_item :home
 - @full_header = true
-- @page_title = 'Welcome'
+- @page_title = 'Välkommen'
 
 .home
-  %p.browse= link_to "Bläddra i vår katalog", catalogue_path
+  %p.browse= link_to 'Bläddra i vår katalog', catalogue_path
   %h2 Populära produkter
 
 = render 'shared/product_list', :products => @products.includes(:default_image)
