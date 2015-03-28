@@ -10,6 +10,14 @@ module ApplicationHelper
     end
     super
   end
+
+  def procuct_categories
+    Shoppe::ProductCategory.where.not(name: 'Kurser').ordered
+  end
+
+  def service_category
+    Shoppe::ProductCategory.where(name: 'Kurser').first
+  end
   
   def markdown(text)
     return '' if text.blank?

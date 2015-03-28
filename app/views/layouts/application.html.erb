@@ -4,7 +4,7 @@
   <title><%= [@page_title, Shoppe.settings.store_name].join('-') %></title>
   <%= render 'shared/meta_tags' %>
   <%= csrf_meta_tags %>
-  <%= render 'shared/app_icons'  %>
+  <%= render 'shared/app_icons' %>
   <%= stylesheet_link_tag :application, media: 'all' %>
   <%= javascript_include_tag :application %>
 
@@ -24,18 +24,23 @@
           <%= link_to_unless_current 'Hem', root_path, nav_item: :home %>
         </li>
         <li>
+          <%= link_to_unless_current 'Om oss', page_path(:why), nav_item: :why %>
+        </li>
+        <li>
           <%= link_to_unless_current 'Produkter', catalogue_path, nav_item: :catalogue, class: 'noborder' %>
           <ul>
-            <% for category in Shoppe::ProductCategory.ordered %>
+            <% for category in procuct_categories %>
                 <li>
                   <%= link_to category.name.upcase, products_path(category.permalink) %>
                 </li>
             <% end %>
           </ul>
         </li>
-        <li>
-          <%= link_to_unless_current 'Om oss', page_path(:why), nav_item: :why %>
-        </li>
+        <% if service_category %>
+            <li>
+              <%= link_to service_category.name, products_path(service_category.permalink) %>
+            </li>
+        <% end %>
         <li>
           <%= link_to_unless_current 'Frågor & Svar', page_path(:faqs), nav_item: :faqs %>
         </li>
@@ -48,8 +53,11 @@
     </nav>
     <div class="pull_left">
       <h1 style="font-family: 'Cinzel', serif; font-size: 5.5em; margin-top: -140px; margin-left: -6px;">LQ</h1>
+
       <h1 style="font-family: 'Cinzel', serif; font-size: 3.5em;;">LashQueen</h1>
-      <p class="intro" style="font-family: 'Lovers Quarrel', cursive;font-size: 3em">Professionella produkter för fransförlängning. </p>
+
+      <p class="intro" style="font-family: 'Lovers Quarrel', cursive;font-size: 3em">Professionella produkter för
+        fransförlängning. </p>
     </div>
   </div>
 </header>
@@ -118,15 +126,17 @@
 </footer>
 <!-- Copyright & trademark information -->
 
-  <div class="inner" style="color: #808080; font-size: 12px;" >
-    <p>Innehåll och bilder &copy; <%= Date.today.year %> LashQueen.se. Tredjeparts innehåll och bilder &copy; deras
-      respektive ägare.
-    </p>
-    <p>Running on <%= image_tag 'social/ruby.svg', style: 'height: 11px; width: 11px;' %> on Rails using <%= link_to 'Shoppe', 'http://tryshoppe.com/' %>
-      e-commerce engine and adopted
-      by <%= link_to 'Thomas Ochman/AgileVentures', 'http://www.agileventures.org/users/thomas-ochman' %>.
-    </p>
-  </div>
+<div class="inner" style="color: #808080; font-size: 12px;">
+  <p>Innehåll och bilder &copy; <%= Date.today.year %> LashQueen.se. Tredjeparts innehåll och bilder &copy; deras
+    respektive ägare.
+  </p>
+
+  <p>Running on <%= image_tag 'social/ruby.svg', style: 'height: 11px; width: 11px;' %> on Rails
+    using <%= link_to 'Shoppe', 'http://tryshoppe.com/' %>
+    e-commerce engine and adopted
+    by <%= link_to 'Thomas Ochman/AgileVentures', 'http://www.agileventures.org/users/thomas-ochman' %>.
+  </p>
+</div>
 
 </body>
 </html>
