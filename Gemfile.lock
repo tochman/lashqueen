@@ -125,6 +125,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1)
+    colorize (0.7.5)
     columnize (0.9.0)
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
@@ -370,6 +371,7 @@ DEPENDENCIES
   byebug
   capybara-webkit (>= 1.2.0)
   coffee-rails (~> 4.0.0)
+  colorize
   database_cleaner
   delayed_job_active_record
   dotenv-rails
