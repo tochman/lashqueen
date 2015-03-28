@@ -1,10 +1,12 @@
 GIT
   remote: git://github.com/tochman/shoppe.git
-  revision: 75a105f5d78548e96ce943febc1c4288d81a4b14
-  branch: develop
+  revision: 1245804077fc2440465bcb99e56f1d100c318bc1
+  branch: categories
   specs:
     shoppe (1.0.5)
+      awesome_nested_set (~> 3.0.1)
       bcrypt (>= 3.1.2, < 3.2)
+      coffee-rails (~> 4)
       dynamic_form (~> 1.1, >= 1.1.4)
       haml (>= 4.0, < 5.0)
       jquery-rails (>= 3, < 4.1)
@@ -16,6 +18,9 @@ GIT
       rails (>= 4.0.0, < 5.0)
       ransack (>= 1.2.0, < 1.6.3)
       roo (>= 1.13.0, < 1.14)
+      roo (>= 1.13.0)
+      sass-rails (~> 5.0.1)
+      uglifier (>= 2.2, < 3.0)
 
 GIT
   remote: https://github.com/ndea/regressor.git
@@ -80,6 +85,8 @@ GEM
     autoprefixer-rails (5.1.7.1)
       execjs
       json
+    awesome_nested_set (3.0.2)
+      activerecord (>= 4.0.0, < 5)
     awesome_print (1.6.1)
     bcrypt (3.1.10)
     better_errors (2.1.1)
