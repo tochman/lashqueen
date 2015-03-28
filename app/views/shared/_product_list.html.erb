@@ -1,7 +1,7 @@
 <ul class="products">
   <% for product in products.includes(:default_image, :product_categories) %>
       <li>
-        <div class="img" style="<%= product_image_class(product) %>"></div>
+        <div class="img" style="<%= product_image_class(product) %>; margin-left: 10px; margin-right: 10px;"></div>
         <h4>
           <%= link_to product.name, product_path(product.product_category.permalink, product.permalink) %>
         </h4>
