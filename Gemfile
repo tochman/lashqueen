@@ -26,6 +26,7 @@ gem 'simple_form'
 gem 'title'
 gem 'uglifier'
 gem 'unicorn'
+gem 'colorize'
 
 #Betygsätt produkter
 #gem 'ratyrate' #http://www.sitepoint.com/ratyrate-add-rating-rails-app/
