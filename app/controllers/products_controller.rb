@@ -38,9 +38,9 @@ class ProductsController < ApplicationController
     product_to_order = params[:variant] ? @product.variants.find(params[:variant].to_i) : @product
     current_order.order_items.add_item(product_to_order, params[:quantity].blank? ? 1 : params[:quantity].to_i)
     respond_to do |wants|
-      wants.html { redirect_to request.referer }
+      wants.html { redirect_to request.referer, alert: 'Lagt till...'  }
       wants.json { render json: {added: true} }
-      wants.mobile { redirect_to request.referer }
+      wants.mobile { redirect_to request.referer, alert: 'Lagt till...' }
     end
   rescue Shoppe::Errors::NotEnoughStock => e
     message = "Tyvärr har vi inte tillräckligt av denna vara på lager. Just nu finns #{e.available_stock} st. på lager."

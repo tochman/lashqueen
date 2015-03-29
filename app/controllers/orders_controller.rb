@@ -26,7 +26,7 @@ class OrdersController < ApplicationController
     else
       item.remove
       respond_to do |wants|
-        wants.html { redirect_to request.referer, :notice => "Item has been removed from your basket successfully"}
+        wants.html { redirect_to request.referer, notice: 'Produkten har tagits bort från din varukorg'}
         wants.json do
           current_order.reload
           render :json => {:status => 'complete', :items => render_to_string(:partial => 'shared/order_items.html', :locals => {:order => current_order})}
