@@ -1,0 +1,28 @@
+<div data-role="header">
+  <h1>
+    Produkter
+  </h1>
+</div>
+<div data-role="content">
+	
+  <ul data-role="listview" class="ui-listview" data-split-icon="plus">
+    <% products.includes(:default_image, :product_categories).each do |product| %>
+      <li class="ui-li-has-alt ui-first-child">
+		<%= link_to product_path(product.product_category.permalink, product.permalink) do %>
+		  	<%= image_tag product.default_image.path %>
+		  	<h3>
+			 	 <%= product.name %>
+		  	</h3>
+        	<p>
+         	   <%= truncate product.short_description, length: 90%>
+        	</p>
+			<% end %>
+			<%= link_to '', buy_product_path(product.product_category.permalink, product.permalink), method: :post%>
+      </li>
+	   	
+
+    <% end %>
+  </ol>
+</div>
+<br/>
+<br/>

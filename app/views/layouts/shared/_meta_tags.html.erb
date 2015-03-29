@@ -1,0 +1,30 @@
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="<%= "#{shared_meta_keywords}#{ content_for?(:keywords) ? ",#{yield(:keywords)}" : ''}" %>">
+<meta name="description" content="<%= content_for?(:description) ? yield(:description) : default_meta_description %>">
+<meta name="author" content="<%= content_for?(:author) ? yield(:author) : 'LashQueen.se' %>">
+<% if content_for?(:robots) %>
+    <meta name="robots" content="<%= yield(:robots) %>">
+<% end %>
+<meta name="copyright" content="LashQueen.se">
+<meta name="coverage" content="Worldwide">
+<meta name="distribution" content="Global">
+<meta name="application-name" content="LashQueen.se e-commerce site">
+
+<meta property="og:title" content="<%= content_for?(:title) ? yield(:title) : 'LashQueen.se' %>"/>
+<meta property="og:type" content="<%= params[:controller] == 'products' ? 'product' : 'website' %>"/>
+<meta property="og:url" content="<%= request.original_url %>"/>
+<meta property="og:site_name" content="LashQueen.se"/>
+<meta property="og:description" content="<%= content_for?(:description) ? yield(:description) : default_meta_description %>">
+<meta property="og:image" content="<%= asset_path 'screenshot.png' %>">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="<%= content_for?(:title) ? yield(:title) : 'LashQueen.se' %>"/>
+<meta name="twitter:url" content="<%= request.original_url %>">
+<meta name="twitter:site" content="@LashQueen">
+<meta name="twitter:image:src" content="<%= asset_path 'screenshot.png' %>">
+<% if content_for?(:twitter_creator) %>
+    <meta name="twitter:creator" content="<%= yield(:twitter_creator) %>">
+<% end %>
+<meta name="twitter:description" content="<%= content_for?(:description) ? yield(:description) : default_meta_description %>">

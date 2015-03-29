@@ -1,0 +1,10 @@
+.basket
+  - if has_order? && current_order.has_items?
+    %p.quantity Det finns <b>#{articles_text(current_order)}</b> i din korg
+    %p.amount <b>#{number_to_currency current_order.total_without_delivery, format: '%n %u'}</b> (exklusive frakt)
+    %p.buttons
+      = link_to 'Granska', basket_path
+      = link_to 'Till kassan', checkout_path, class: 'checkout'
+
+  - else
+    %p.empty <b>Varukorgen är tom.</b>

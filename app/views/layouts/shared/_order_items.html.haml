@@ -1,0 +1,43 @@
+%table.orderItems
+  %thead
+    %tr
+      %td Antal
+      %td Vara
+      %td Pris
+      %td= Shoppe.settings.tax_name
+      %td Totalt
+  %tbody
+    - for item in order.order_items
+      %tr
+        %td.quantity
+          - unless defined?(readonly)
+            %span
+              = link_to '+', adjust_basket_item_quantity_path(item.id), method: :post, class: 'ajax'
+              = link_to '-', adjust_basket_item_quantity_path(item.id), method: :delete, class: 'ajax'
+          = item.quantity
+        %td.product
+          = item.ordered_item.full_name
+          - unless defined?(readonly)
+            = link_to 'Ta bort', remove_basket_item_path(item), method: :delete, class: 'delete ajax'
+        %td.money.price= number_to_currency item.sub_total, format: '%n %u'
+        %td.money.tax= number_to_currency item.tax_amount, format: '%n %u'
+        %td.money.total= number_to_currency item.total, format: '%n %u'
+  %tfoot
+    - if order.delivery_service
+      %tr.delivery
+        %td.method{colspan: 4}
+          - if defined?(readonly)
+            = order.delivery_service.name
+          - else
+            = form_tag change_delivery_service_path do
+              = select_tag 'delivery_service', options_from_collection_for_select(order.available_delivery_services, :id, :name, order.delivery_service.id)
+        %td.money= number_to_currency order.delivery_price, format: '%n %u'
+    %tr.subtotal
+      %td{:colspan => 4} Total (exklusive #{Shoppe.settings.tax_name})
+      %td.money= number_to_currency order.total_before_tax, format: '%n %u'
+    %tr.tax
+      %td{:colspan => 4}= Shoppe.settings.tax_name
+      %td.money= number_to_currency order.tax, format: '%n %u'
+    %tr.total
+      %td{:colspan => 4} Total
+      %td.money= number_to_currency order.total, format: '%n %u'
