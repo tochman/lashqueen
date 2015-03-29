@@ -15,3 +15,4 @@
 //= require bootstrap-sprockets
 //= require shoppe/stripe/form_handler
 //= require_tree .
+

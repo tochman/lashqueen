@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head></head>
+  <title><%= [@page_title, Shoppe.settings.store_name].join('-') %></title>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <%= stylesheet_link_tag    "mobile/application", media: "all", "data-turbolinks-track" => true %>
+  <%#= javascript_include_tag "mobile/application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "mobile/mobile" %>
+  <%= csrf_meta_tags %>
+  <body>
+	  
+    <div data-role="page" data-url="<%= request.path %>">
+  	  <div data-role="header" data-theme="b" class="ui-header ui-bar-b">
+  	  	<a href="#" data-icon="delete">Home</a>
+  	  	<h1><%= Shoppe.settings.store_name %></h1>
+  		<a href="#" data-icon="gear" class="ui-btn-right">Options</a>
+  			<span class="ui-title" />
+  	  </div>
+      <br>
+	  
+        <%= yield %>
+      </br>
+    </div>
+  </body>
+</html>

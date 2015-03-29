@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
 
   before_filter(:except => :status) { redirect_to root_path unless has_order? }
+  respond_to :html, :js
 
   def status
     @order = Shoppe::Order.find_by_token!(params[:token])

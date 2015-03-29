@@ -11,6 +11,10 @@ class ProductsController < ApplicationController
   
   def index
     @products = @product_category.products.includes(:default_image, :product_categories, :variants).root.active
+    respond_to do |wants|
+      wants.html { render :show }
+      wants.mobile { render :show }
+    end
   end
   
   def filter
@@ -23,6 +27,11 @@ class ProductsController < ApplicationController
   
   def show
     @attributes = @product.product_attributes.public.to_a
+    respond_to do |wants|
+      wants.html { render :show }
+      wants.js
+      wants.mobile { render :show }
+    end
   end
   
   def add_to_basket
@@ -31,11 +40,14 @@ class ProductsController < ApplicationController
     respond_to do |wants|
       wants.html { redirect_to request.referer }
       wants.json { render json: {added: true} }
+      wants.mobile { redirect_to request.referer }
     end
   rescue Shoppe::Errors::NotEnoughStock => e
+    message = "Tyvärr har vi inte tillräckligt av denna vara på lager. Just nu finns #{e.available_stock} st. på lager."
     respond_to do |wants|
-      wants.html { redirect_to request.referer, alert: "Tyvärr har vi inte tillräckligt av denna vara på lager. Just nu finns #{e.available_stock} st. på lager."}
+      wants.html { redirect_to request.referer, alert: message }
       wants.json { render json: {error: 'NotEnoughStock', available_stock: e.available_stock}}
+      wants.mobile { redirect_to request.referer, alert: message }
     end
   end
   
