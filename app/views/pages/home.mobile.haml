@@ -1,9 +1,0 @@
-- active_nav_item :home
-- @full_header = true
-- @page_title = 'Välkommen'
-
-.home
-  %p.browse= link_to 'Bläddra i vår katalog', catalogue_path
-  %h2 Mobil
-
-= render 'shared/mobile/product_list', :products => @products.includes(:default_image)
