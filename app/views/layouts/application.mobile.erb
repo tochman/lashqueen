@@ -25,29 +25,12 @@
 	              <ul>
 	                  <li><a href="#" data-icon="home">Hem</a></li>
 	                  <li><a href="#" data-icon="mail">Kontakt</a></li>
-	                  <li><a href="#" data-icon="shop">Varukorg</a></li>
+	                  <li><a href="<%= basket_path %>" data-icon="shop">Varukorg</a></li>
 	              </ul>
 	          </div><!-- /navbar -->
 	  </div><!-- /footer -->
 		  
 	<%= render 'layouts/panel' %>
     </div>
-	
-	<script>
-	$( document ).on( "pagecreate", "#page", function() {
-	    $( document ).on( "swipeleft swiperight", "#page", function( e ) {
-	        // We check if there is no open panel on the page because otherwise
-	        // a swipe to close the left panel would also open the right panel (and v.v.).
-	        // We do this by checking the data that the framework stores on the page element (panel: open).
-	        if ( $( ".ui-page-active" ).jqmData( "panel" ) !== "open" ) {
-	            if ( e.type === "swipeleft" ) {
-	                $( "#nav-panel" ).panel( "open" );
-	            } else if ( e.type === "swiperight" ) {
-	                $( "#nav-panel" ).panel( "open" );
-	            }
-	        }
-	    });
-	});
-	</script>
   </body>
 </html>

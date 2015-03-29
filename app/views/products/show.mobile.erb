@@ -1,11 +1,13 @@
- <h2>
-   <%= @product.name %>
- </h2>
- 
- <% if @product.default_image %>
- <%= image_tag @product.default_image.path, style: 'max-height: 200px;'%>
- <% end %>
- 
- <p>
-   <%= @product.short_description %>
- </p>
+<div class="content">
+  <h2>
+    <%= @product.name %>
+  </h2>
+
+  <% if @product.default_image %>
+      <%= image_tag @product.default_image.path, style: 'max-height: 200px;'%>
+  <% end %>
+
+  <p>
+    <%= @product.short_description %>
+  </p>
+</div>
