@@ -14,12 +14,6 @@
   <% for item in order.order_items %>
       <tr>
         <td class="quantity">
-          <% unless defined?(readonly) %>
-            <span>
-              <%= link_to '+', adjust_basket_item_quantity_path(item.id), method: :post, class: 'ajax' %>
-              <%= link_to '-', adjust_basket_item_quantity_path(item.id), method: :delete, class: 'ajax' %>
-            </span>
-          <% end %>
           <%= item.quantity %>
         </td>
         <td class="product">
@@ -58,7 +52,7 @@
       </tr>
   <% end %>
   <tr class="subtotal">
-    <td colspan="4">Total (exklusive #{Shoppe.settings.tax_name})</td>
+    <td colspan="4">Total (exklusive <%= Shoppe.settings.tax_name %>)</td>
     <td class="money">
       <%= number_to_currency order.total_before_tax, format: '%n %u' %>
     </td>

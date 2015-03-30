@@ -1,4 +1,3 @@
-<div class="content">
   <h2>
     <%= @product.name %>
   </h2>
@@ -10,4 +9,9 @@
   <p>
     <%= @product.short_description %>
   </p>
-</div>
+  <%= form_tag buy_product_path(@product.product_category.permalink, @product.permalink), class: (@product.in_stock? ? 'in-stock' : 'no-stock') do %>
+      <p>
+        <%= select_tag 'quantity', options_for_select([1, 2, 3, 4, 5, 6, 7, 8, 9]), disabled: !@product.in_stock? %>
+        <%= submit_tag 'Lägg till...', disabled: !@product.in_stock? %>
+      </p>
+  <% end %>

@@ -1,53 +1,44 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-  <head></head>
-  <title><%= [@page_title, Shoppe.settings.store_name].join('-') %></title>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <%= stylesheet_link_tag    "mobile/application", media: "all", "data-turbolinks-track" => true %>
-  <%#= javascript_include_tag "mobile/application", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "mobile/mobile" %>
-  <%= csrf_meta_tags %>
-  <body>
-	  
-    <div data-role="page" id="page" data-url="<%= request.path %>">
-  	  <div data-role="header" data-theme="b" class="ui-header ui-bar-b">
-  	  	<a href="#nav-panel" data-icon="bars" class="ui-link ui-btn-left ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all"></a>
-  	  	<span class="ui-title"><%= Shoppe.settings.store_name %></span>
-  		<a href="<%= root_path %>" data-icon="home" class="ui-link ui-btn-right ui-btn ui-icon-home ui-btn-icon-notext ui-corner-all"></a>
-  			
-  	  </div>
-     <!--div data-role="content"-->
-		  <%= yield %>
-	 <!--/div-->
-	  
-	  <div data-role="footer" data-theme="b"><!-- footer -->
-	          <div data-role="navbar" data-iconpos="right"><!-- navbar -->
-	              <ul>
-	                  <li><a href="<%= root_path %>" data-icon="home">Hem</a></li>
-	                  <li><a href="<%= page_path(:contact) %>" data-icon="mail">Kontakt</a></li>
-	                  <li><a href="#popupBasic" data-icon="shop">Varukorg</a></li>
-	              </ul>
-	          </div><!-- /navbar -->
-	  </div><!-- /footer -->
-		  
-	<%= render 'layouts/panel' %>
-
-      <a href="#popupBasic" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-transition="pop">Basic Popup</a>
-      <div data-role="popup" id="popupBasic">
-        <div>
-          <% if has_order? && current_order.has_items? %>
-              <p>Det finns <b>#{articles_text(current_order)}</b> i din korg</p>
-              <p ><b>#{number_to_currency current_order.total_without_delivery, format: '%n %u'}</b> (exklusive frakt)</p>
-              <p>
-                <%= link_to 'Till kassan', checkout_path, class: 'checkout' %>
-              </p>
-          <% else %>
-              <p><b>Varukorgen är tom.</b></p>
-          <% end %>
-        </div>
-      </div>
+<head></head>
+<title><%= [@page_title, Shoppe.settings.store_name].join('-') %></title>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<%= stylesheet_link_tag "mobile/application", media: "all", "data-turbolinks-track" => true %>
+<%#= javascript_include_tag "mobile/application", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "mobile/mobile" %>
+<%= csrf_meta_tags %>
+<body>
+<%= render 'layouts/shared/mobile/basket_pop' %>
 
 
+<div data-role="page" id="page" data-url="<%= request.path %>">
+  <div data-role="header" data-theme="b" class="ui-header ui-bar-b">
+    <a href="#nav-panel" data-icon="bars" class="ui-link ui-btn-left ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all"></a>
+    <span class="ui-title"><%= Shoppe.settings.store_name %></span>
+    <a href="<%= root_path %>" data-icon="home" class="ui-link ui-btn-right ui-btn ui-icon-home ui-btn-icon-notext ui-corner-all"></a>
+
+  </div>
+  <div data-role="content">
+  <%= yield %>
+  </div>
+
+  <div data-role="footer" data-theme="b"><!-- footer -->
+    <div data-role="navbar" data-iconpos="right"><!-- navbar -->
+      <ul>
+        <li><a href="<%= root_path %>" data-icon="home">Hem</a></li>
+        <li><a href="<%= page_path(:contact) %>" data-icon="mail">Kontakt</a></li>
+        <li><a href="#popupBasic" data-rel="popup" data-icon="shop">Varukorg</a></li>
+      </ul>
     </div>
-  </body>
+    <!-- /navbar -->
+  </div>
+  <!-- /footer -->
+
+  <%= render 'layouts/panel' %>
+
+
+
+
+</div>
+</body>
 </html>

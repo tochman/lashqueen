@@ -31,6 +31,7 @@ class OrdersController < ApplicationController
           current_order.reload
           render :json => {:status => 'complete', :items => render_to_string(:partial => 'shared/order_items.html', :locals => {:order => current_order})}
         end
+        wants.mobile { redirect_to request.referer, notice: 'Produkten har tagits bort från din varukorg'}
       end
     end
   end

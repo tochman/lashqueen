@@ -1,0 +1,101 @@
+<% @page_title = 'Checkout' %>
+<div class="checkout">
+  <p class="secure">
+    <%= link_to (image_tag 'solid.png'), 'https://stripe.com/se/features#seamless-security' %>
+  </p>
+  <h2>Lägg din beställning</h2>
+  <p class="intro">
+    Granska din beställning innan du går vidare
+  </p>
+  <h3>Beställning</h3>
+  <%= render 'shared/mobile/order_items', :order => @order %>
+  <% unless @order.delivery_required? && @order.delivery_service.nil? %>
+      <h3>Leveransuppgifter</h3>
+      <%= form_for @order, :url => checkout_path, :html => {:class => 'checkout disableable'} do |f| %>
+          <%= f.error_messages %>
+          <div class="customer">
+            <%= field_set_tag do %>
+                <dl>
+                  <dt>
+                    <%= f.label :first_name, "Namn", :class => 'req' %>
+                  </dt>
+                  <dd class="name">
+                    <%= f.text_field :first_name, :placeholder => 'Förnamn' %>
+                    <%= f.text_field :last_name, :placeholder => 'Efternamn' %>
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>
+                    <%= f.label :email_address, 'E-mail', :class => 'req' %>
+                  </dt>
+                  <dd>
+                    <%= f.text_field :email_address %>
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>
+                    <%= f.label :phone_number, 'Telefonnummer', :class => 'req' %>
+                  </dt>
+                  <dd>
+                    <%= f.text_field :phone_number %>
+                  </dd>
+                </dl>
+            <% end %>
+            <%= field_set_tag do %>
+                <dl>
+                  <dt>
+                    <%= f.label :billing_address1, 'Faktureringsadress', :class => 'req' %>
+                  </dt>
+                  <dd>
+                    <%= f.text_field :billing_address1, :placeholder => 'Gata' %>
+                  </dd>
+                  <dd>
+                    <%= f.text_field :billing_postcode, :placeholder => 'PostNr', :class => 'postcode' %>
+                  </dd>
+                  <dd>
+                    <%= f.text_field :billing_address3, :placeholder => 'Stad' %>
+                  </dd>
+                  <dt>
+                    <%= 'Land' %>
+                  </dt>
+                  <dd>
+                    <%= f.collection_select :billing_country_id, Shoppe::Country.ordered, :id, :name %>
+                  </dd>
+                  <dd>
+                    <%= f.check_box :separate_delivery_address %>
+                    <%= f.label :separate_delivery_address, 'Leverera till annan adress?' %>
+                  </dd>
+                </dl>
+                <dl class="delivery">
+                  <dt>
+                    <%= f.label :delivery_address1, "Leveransadress", :class => 'req' %>
+                  </dt>
+                  <dd>
+                    <%= f.text_field :delivery_name, :placeholder => 'Mottagare' %>
+                  </dd>
+                  <dd>
+                    <%= f.text_field :delivery_address1, :placeholder => 'Gata' %>
+                  </dd>
+                  <dd>
+                    <%= f.text_field :delivery_postcode, :placeholder => 'Postnummer', :class => 'postcode' %>
+                  </dd>
+                  <dd>
+                    <%= f.text_field :delivery_address3, :placeholder => 'Stad' %>
+                  </dd>
+                  <dt>
+                    <%= 'Land' %>
+                  </dt>
+                  <dd>
+                    <%= f.collection_select :delivery_country_id, Shoppe::Country.ordered, :id, :name %>
+                  </dd>
+                </dl>
+            <% end %>
+          </div>
+          <p class="submit">
+            <%= f.submit 'Fortsätt till betalning' %>
+          </p>
+      <% end %>
+  <% else %>
+      <p>Var snäll ring oss för att slutföra denna beställning</p>
+  <% end %>
+</div>

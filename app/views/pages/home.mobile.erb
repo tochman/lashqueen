@@ -1,9 +1,9 @@
 <% active_nav_item :home %>
 <% @full_header = true %>
 <% @page_title = 'Välkommen' %>
-<div data-role="content">
+
     <%= link_to 'Bläddra i vår katalog', catalogue_path %>
   <h2>Utvalda produkter</h2>
   <br />
   <%= render 'shared/mobile/product_list', :products => @products.includes(:default_image) %>
-</div>
+

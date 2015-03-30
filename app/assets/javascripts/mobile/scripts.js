@@ -38,6 +38,10 @@ $(document).ready(function(){
 	if(v===true) $('html').addClass(k);
 	});
 
+    $( function() {
+        $( "#popupBasic" ).enhanceWithin().popup();
+    });
+
 });
 
 $( document ).on( "pagecreate", "#page", function() {
