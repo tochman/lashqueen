@@ -3,12 +3,10 @@
 <head></head>
 <title><%= [@page_title, Shoppe.settings.store_name].join('-') %></title>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<%= stylesheet_link_tag "mobile/application", media: "all", "data-turbolinks-track" => true %>
-<%#= javascript_include_tag "mobile/application", "data-turbolinks-track" => true %>
-<%= javascript_include_tag "mobile/mobile" %>
+<%= stylesheet_link_tag 'mobile/application', media: 'all' %>
+<%= javascript_include_tag 'mobile/mobile' %>
 <%= csrf_meta_tags %>
 <body>
-<%= render 'layouts/shared/mobile/basket_pop' %>
 
 
 <div data-role="page" id="page" data-url="<%= request.path %>">

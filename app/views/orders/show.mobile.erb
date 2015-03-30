@@ -1,9 +1,8 @@
 <% @page_title = 'Din beställning' %>
-<div class="content">
-  <h2>Din beställning</h2>
-  <p>
-    Dessa varor har lagts till till din beställning. Granska listan och gör eventuella ändringar.
-    Klicka på "Till kassan" när du är redo att gå vidare"
-  </p>
-  <%= render 'shared/order_items', order: current_order %>
-</div>
+<%= render 'layouts/shared/mobile/basket_pop' %>
+<h2>Din beställning</h2>
+<p>
+  Dessa varor har lagts till till din beställning. Granska listan och gör eventuella ändringar.
+  Klicka på "Till kassan" när du är redo att gå vidare"
+</p>
+

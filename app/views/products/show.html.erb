@@ -1,5 +1,6 @@
 <% active_nav_item :catalogue %>
 <% @page_title = @product.name + ' - ' + @product.product_category.name %>
+
 <div class="product">
   <% if @product.default_image %>
       <div class="img" style="background-image:url(<%= @product.default_image.path %>)"></div>
