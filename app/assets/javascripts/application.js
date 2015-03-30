@@ -11,10 +11,11 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
 //= require jquery.turbolinks
+//= require jquery_ujs
 //= require bootstrap-sprockets
 //= require shoppe/stripe/form_handler
 //=
 //= require_directory .
+//= require turbolinks
 

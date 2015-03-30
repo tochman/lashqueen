@@ -3,17 +3,17 @@
 <head></head>
 <title><%= [@page_title, Shoppe.settings.store_name].join('-') %></title>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<%= stylesheet_link_tag 'mobile/application', media: 'all' %>
+<%= stylesheet_link_tag 'mobile/application', media: 'all'%>
 <%= javascript_include_tag 'mobile/mobile' %>
 <%= csrf_meta_tags %>
-<body>
+<body data-no-turbolink>
 
 
 <div data-role="page" id="page" data-url="<%= request.path %>">
   <div data-role="header" data-theme="b" class="ui-header ui-bar-b">
     <a href="#nav-panel" data-icon="bars" class="ui-link ui-btn-left ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all"></a>
     <span class="ui-title"><%= Shoppe.settings.store_name %></span>
-    <a href="<%= root_path %>" data-icon="home" class="ui-link ui-btn-right ui-btn ui-icon-home ui-btn-icon-notext ui-corner-all"></a>
+    <a href="<%= root_path %>" data-no-turbolink = "true" data-icon="home" class="ui-link ui-btn-right ui-btn ui-icon-home ui-btn-icon-notext ui-corner-all"></a>
 
   </div>
   <div data-role="content">
@@ -25,7 +25,7 @@
       <ul>
         <li><a href="<%= root_path %>" data-icon="home">Hem</a></li>
         <li><a href="<%= page_path(:contact) %>" data-icon="mail">Kontakt</a></li>
-        <li><a href="#popupBasic" data-rel="popup" data-icon="shop">Varukorg</a></li>
+        <li><a href="#popupBasic" data-rel="popup" data-icon="shop" data-no-turbolink = "true">Varukorg</a></li>
       </ul>
     </div>
     <!-- /navbar -->

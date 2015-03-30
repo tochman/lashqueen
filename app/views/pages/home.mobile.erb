@@ -1,10 +1,10 @@
 <% active_nav_item :home %>
 <% @full_header = true %>
 <% @page_title = 'Välkommen' %>
+<%= render 'layouts/shared/mobile/basket_pop' %>
 
 <%= link_to 'Bläddra i vår katalog', catalogue_path %>
 <h2>Utvalda produkter</h2>
 <br/>
 <%= render 'shared/mobile/product_list', :products => @products.includes(:default_image) %>
-<%= render 'layouts/shared/mobile/basket_pop' %>
 

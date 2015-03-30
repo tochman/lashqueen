@@ -422,6 +422,7 @@ DEPENDENCIES
   sprockets-rails
   timecop
   title
+  turbolinks
   uglifier
   unicorn
   web-console
