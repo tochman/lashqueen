@@ -1,12 +1,12 @@
-Hello <%=@order.first_name%>!
+Hej <%=@order.first_name%>!
 
-Re: Order #<%=@order.number%>
+Re: Beställning #<%=@order.number%>
 
-We're pleased to let you know that we have accepted your order and your payment of <%=number_to_currency @order.total%> has been taken from your card successfully.
+Vi har börjat behandla din beställning och kan bekräfta att vi har tagit emot din betalning på <%=number_to_currency @order.total%>.
 
-We will e-mail you again when we ship your order from our warehouse.
+Vi återkommer med mer information när beställningen är skickad.
 
-Many thanks,
+Med vänliga hälsningar,
 
 <%=Shoppe.settings.store_name%>
 <%=Shoppe.settings.email_address%>

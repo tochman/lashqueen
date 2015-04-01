@@ -1,16 +1,15 @@
-Hello <%=@order.first_name%>!
+Hej <%=@order.first_name%>!
 
-Re: Order #<%=@order.number%>
+Re: Besällning #<%=@order.number%>
 
-We're pleased to let you know your order has been shipped and
-will be with you shortly!
+Vi har skickat din beställning och du bör få din leverans inom de närmaste dagarna
 
 <% if @order.delivery_service && @order.courier_tracking_url -%>
-You can the delivery online at:
+Du kan spåra din sändning online på:
 <%=@order.courier_tracking_url%>
 <% end -%>
 
-Many thanks,
+Med vänliga hälsningar,
 
 <%=Shoppe.settings.store_name%>
 <%=Shoppe.settings.email_address%>

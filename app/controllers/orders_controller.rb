@@ -97,7 +97,7 @@ class OrdersController < ApplicationController
       elsif @order.errors.any?
         flash.now[:alert] = @order.errors.full_messages.join(' ')
       else
-        flash.now[:notice] = 'Could not exchange Stripe token. Please try again.'
+        flash.now[:notice] = 'Kommunikationen med betaltjänsten kunde inte etableras'
       end
     end
   end
@@ -119,7 +119,7 @@ class OrdersController < ApplicationController
         flash[:alert] = "Betalningen kunde inte genomföras. #{e.message}"
         redirect_to checkout_path
       rescue Shoppe::Errors::InsufficientStockToFulfil
-        flash[:alert] = "We're terribly sorry but while you were checking out we ran out of stock of some of the items in your basket. Your basket has been updated with the maximum we can currently supply. If you wish to continue just use the button below."
+        flash[:alert] = 'Vi är hemskt ledsna, men under tiden du checkade ut tog några av varorna i din varukorg slut på lager. Din varukorg har uppdaterats med de varor vi kan leverera för tillfället. Om du vill fortsätta, använd knappen nedan.'
         redirect_to checkout_path
       end
     end
