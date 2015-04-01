@@ -69,7 +69,7 @@ group :staging, :production do
   gem 'rails_12factor'
 end
 #Adding gems for e-commerce solution
-gem 'shoppe', github: 'tochman/shoppe', branch: 'categories'
+gem 'shoppe', github: 'tochman/shoppe', branch: 'customers'
 
 #gem 'shoppe', git: 'https://github.com/tryshoppe/shoppe'
 #gem 'klarna-checkout'

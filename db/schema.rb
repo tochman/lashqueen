@@ -53,6 +53,22 @@ ActiveRecord::Schema.define(version: 20150316122817) do
     t.string  "value"
   end
 
+  create_table "shoppe_addresses", force: :cascade do |t|
+    t.integer  "customer_id"
+    t.string   "address_type"
+    t.boolean  "default"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "address3"
+    t.string   "address4"
+    t.string   "postcode"
+    t.integer  "country_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "shoppe_addresses", ["customer_id"], name: "index_shoppe_addresses_on_customer_id", using: :btree
+
   create_table "shoppe_countries", force: :cascade do |t|
     t.string  "name"
     t.string  "code2"
@@ -61,6 +77,17 @@ ActiveRecord::Schema.define(version: 20150316122817) do
     t.string  "tld"
     t.string  "currency"
     t.boolean "eu_member", default: false
+  end
+
+  create_table "shoppe_customers", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "company"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "mobile"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "shoppe_delivery_service_prices", force: :cascade do |t|
@@ -153,6 +180,7 @@ ActiveRecord::Schema.define(version: 20150316122817) do
     t.decimal  "amount_paid",               precision: 8,  scale: 2, default: 0.0
     t.boolean  "exported",                                           default: false
     t.string   "invoice_number"
+    t.integer  "customer_id"
   end
 
   add_index "shoppe_orders", ["delivery_service_id"], name: "index_shoppe_orders_on_delivery_service_id", using: :btree
