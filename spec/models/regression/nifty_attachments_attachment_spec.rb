@@ -14,7 +14,7 @@ RSpec.describe Nifty::Attachments::Attachment do
   it { is_expected.to have_db_column :id }
 	it { is_expected.to have_db_column :parent_id }
 	it { is_expected.to have_db_column :parent_type }
-	#it { is_expected.to have_db_column :token }
+	it { is_expected.to have_db_column :token }
 	it { is_expected.to have_db_column :digest }
 	it { is_expected.to have_db_column :role }
 	it { is_expected.to have_db_column :file_name }
@@ -34,7 +34,7 @@ RSpec.describe Nifty::Attachments::Attachment do
 	it { is_expected.to validate_presence_of :file_type }
 	it { is_expected.to validate_presence_of :data }
 	it { is_expected.to validate_presence_of :digest }
-	it { is_expected.to validate_presence_of :token }
+	#it { is_expected.to validate_presence_of :token }
 
   # === Validations (Numericality) ===
   
