@@ -18,6 +18,11 @@
   </div>
   <div data-role="content">
   <%= yield %>
+        <% if mobile_device? %>
+          <%= link_to "Desktop version", :mobile => 0 %>
+        <% else %>
+          <%= link_to "Mobil version", :mobile => 1 %>
+        <% end %>
   </div>
 
   <div data-role="footer" data-theme="b"><!-- footer -->
